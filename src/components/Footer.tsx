@@ -1,3 +1,6 @@
+/** Replace with your real support or contact address */
+const CONTACT_EMAIL = 'vynceai04@gmail.com'
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06]" style={{ background: '#060608' }}>
@@ -15,8 +18,13 @@ export default function Footer() {
           {/* Brand block */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center text-white font-bold font-syne text-sm shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-                V
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                <img
+                  src="/vynce-ai-logo.png"
+                  alt="Vynce AI"
+                  className="w-5 h-5 object-contain"
+                  draggable={false}
+                />
               </div>
               <span className="font-syne font-bold text-white text-lg">
                 Vynce<span className="text-purple-400"> AI</span>
@@ -26,24 +34,6 @@ export default function Footer() {
             <p className="text-white/35 text-sm leading-relaxed mb-6 max-w-xs">
               AI automation platform helping modern businesses convert conversations into revenue — 24/7, at scale.
             </p>
-
-            {/* Social icons */}
-            <div className="flex gap-3">
-              {[
-                { label: '𝕏', title: 'Twitter' },
-                { label: 'in', title: 'LinkedIn' },
-                { label: 'gh', title: 'GitHub' },
-              ].map(s => (
-                <a
-                  key={s.label}
-                  href="#"
-                  title={s.title}
-                  className="w-9 h-9 glass rounded-xl flex items-center justify-center text-white/40 hover:text-white hover:border-purple-500/40 transition-all duration-200 text-xs font-bold"
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Product links */}
@@ -64,13 +54,20 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-sm font-semibold font-syne mb-5">Company</h4>
             <ul className="space-y-3.5">
-              {['About', 'Contact'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-white/35 text-sm hover:text-white/70 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#" className="text-white/35 text-sm hover:text-white/70 transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-white/35 text-sm hover:text-white/70 transition-colors"
+                  aria-label={`Email ${CONTACT_EMAIL}`}
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
         </div>

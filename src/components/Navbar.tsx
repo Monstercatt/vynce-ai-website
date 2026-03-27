@@ -16,7 +16,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const links = ['Solution', 'Features', 'Industries', 'Demo']
+  const links = ['Solution', 'Features', 'Industries', 'Demo', 'Contact']
 
   return (
     <motion.nav
@@ -32,8 +32,13 @@ export default function Navbar() {
       <div className="max-w-[1280px] mx-auto flex items-center justify-between h-16 md:h-20 px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center text-white font-bold font-syne text-sm shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-            V
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+            <img
+              src="/vynce-ai-logo.png"
+              alt="Vynce AI"
+              className="w-5 h-5 object-contain"
+              draggable={false}
+            />
           </div>
           <span className="font-syne font-700 text-white text-lg tracking-tight">Vynce<span className="text-purple-400"> AI</span></span>
         </a>

@@ -8,6 +8,8 @@ import Features from "./sections/Features"
 import Industries from "./sections/Industries"
 import Demo from "./sections/Demo"
 import CTA from "./sections/CTA"
+import Contacts from "./sections/Contact"
+
 
 import useLenis from "./hooks/useLenis"
 
@@ -18,13 +20,16 @@ function App() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <SocialProof />
-        <ProblemSolution />
-        <Features />
-        <Industries />
-        <Demo />
-        <CTA />
+        <div>
+          <Hero />
+          <SocialProof />
+          <ProblemSolution />
+          <Features />
+          <Industries />
+          <Demo />
+          <CTA />
+          <Contacts />
+        </div>
       </main>
       <Footer />
     </>

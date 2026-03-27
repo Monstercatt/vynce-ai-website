@@ -109,7 +109,16 @@ export default function Demo() {
                         ? 'bg-gradient-to-br from-purple-500 to-cyan-400 text-white'
                         : 'bg-white/10 text-white/60'
                     }`}>
-                      {msg.role === 'ai' ? 'V' : '👤'}
+                      {msg.role === 'ai' ? (
+                        <img
+                          src="/vynce-ai-logo.png"
+                          alt="Vynce AI"
+                          className="w-4 h-4 object-contain"
+                          draggable={false}
+                        />
+                      ) : (
+                        '👤'
+                      )}
                     </div>
                   )}
                   <div className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
