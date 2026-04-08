@@ -135,6 +135,27 @@ export default function Contacts() {
                 Join Discord server
               </a>
             </div>
+
+            <div className="card p-7">
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Our Office</h2>
+              <p className="text-gray-500 text-sm leading-relaxed" style={{ marginBottom: 12 }}>
+                <strong style={{ color: "rgba(255,255,255,0.75)" }}>Address:</strong><br />
+                36, Shri Ram Nagar , New Subhedar Layout,<br />
+                Nagpur, Maharashtra — 440024, India
+              </p>
+              <p className="text-gray-500 text-sm leading-relaxed" style={{ marginBottom: 4 }}>
+                <strong style={{ color: "rgba(255,255,255,0.75)" }}>Phone:</strong>{" "}
+                <a href="tel:+919876543210" className="text-[#4285f4] hover:underline font-medium">
+                  +91 9119496501
+                </a>
+              </p>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                <strong style={{ color: "rgba(255,255,255,0.75)" }}>Email:</strong>{" "}
+                <a href="mailto:vynceai04@gmail.com" className="text-[#4285f4] hover:underline font-medium">
+                  vynceai04@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
