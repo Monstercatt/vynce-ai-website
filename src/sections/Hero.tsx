@@ -353,7 +353,7 @@ export default function Hero() {
             style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 36 }}
           >
             <a
-              href="#"
+              href="#contact"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "12px 26px", borderRadius: 12,

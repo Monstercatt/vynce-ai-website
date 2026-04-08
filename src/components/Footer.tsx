@@ -1,90 +1,105 @@
-/** Replace with your real support or contact address */
-const CONTACT_EMAIL = 'vynceai04@gmail.com'
+import { Mail, Globe, MapPin } from "lucide-react";
 
-export default function Footer() {
-  return (
-    <footer className="relative border-t border-white/[0.06]" style={{ background: '#060608' }}>
-      {/* Top glow line */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.5), rgba(34,211,238,0.3), transparent)' }}
-      />
+const products = ["AI Chat Agents", "Customer Support Automation", "Analytics Dashboard", "Sales Automation"];
+const services = ["AI Automation Setup", "Workflow Optimization", "Business Process Automation", "Custom AI Development"];
 
-      <div className="max-w-[1280px] mx-auto px-6 py-14 md:py-16">
-
-        {/* Main grid: brand + 2 link cols */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-12">
-
-          {/* Brand block */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-                <img
-                  src="/vynce-ai-logo.png"
-                  alt="Vynce AI"
-                  className="w-5 h-5 object-contain"
-                  draggable={false}
-                />
-              </div>
-              <span className="font-syne font-bold text-white text-lg">
-                Vynce<span className="text-purple-400"> AI</span>
-              </span>
-            </div>
-
-            <p className="text-white/35 text-sm leading-relaxed mb-6 max-w-xs">
-              AI automation platform helping modern businesses convert conversations into revenue — 24/7, at scale.
-            </p>
+const Footer = () => (
+  <footer className="border-t border-border/30 bg-card/30">
+    <div className="container mx-auto px-4 md:px-8 py-20">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        
+        {/* Brand Section */}
+        <div className="md:pr-6">
+          <div className="flex items-center gap-3 mb-6">
+            {/* Added Logo on the left */}
+            <img 
+              src="/vynce-logo.png" 
+              alt="Vynce AI Logo" 
+              className="h-10 w-auto object-contain" 
+            />
+            {/* Main text in bright white */}
+            <h3 className="font-heading text-2xl font-extrabold text-white tracking-wide uppercase">
+              VYNCE AI
+            </h3>
           </div>
-
-          {/* Product links */}
-          <div>
-            <h4 className="text-white text-sm font-semibold font-syne mb-5">Product</h4>
-            <ul className="space-y-3.5">
-              {['Features', 'Demo', 'How It Works'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-white/35 text-sm hover:text-white/70 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company links */}
-          <div>
-            <h4 className="text-white text-sm font-semibold font-syne mb-5">Company</h4>
-            <ul className="space-y-3.5">
-              <li>
-                <a href="#" className="text-white/35 text-sm hover:text-white/70 transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="text-white/35 text-sm hover:text-white/70 transition-colors"
-                  aria-label={`Email ${CONTACT_EMAIL}`}
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.05]"
-        >
-          <p className="text-white/25 text-xs text-center sm:text-left">
-            © 2025 Vynce AI. All rights reserved.
+          {/* Faint white text below */}
+          <p className="text-[15px] text-white/60 leading-relaxed">
+            AI-powered business automation to accelerate growth and scale operations.
           </p>
-          <div className="flex gap-5 text-xs text-white/25">
-            <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Terms of Service</a>
-          </div>
         </div>
+
+        {/* Products Section */}
+        <div>
+          <h4 className="font-heading font-bold text-white text-lg mb-6">Products</h4>
+          {/* Increased space-y to match the airy spacing in the screenshot */}
+          <ul className="space-y-4">
+            {products.map((item) => (
+              <li 
+                key={item} 
+                className="text-[15px] text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 ease-in-out cursor-pointer inline-block w-full"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Services Section */}
+        <div>
+          <h4 className="font-heading font-bold text-white text-lg mb-6">Services</h4>
+          <ul className="space-y-4">
+            {services.map((item) => (
+              <li 
+                key={item} 
+                className="text-[15px] text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 ease-in-out cursor-pointer inline-block w-full"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact Section */}
+        <div>
+          <h4 className="font-heading font-bold text-white text-lg mb-6">Contact</h4>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3 text-[15px] text-white/60 group">
+              <Mail className="h-5 w-5 text-white/60 group-hover:text-white transition-colors shrink-0" />
+              <a 
+                href="mailto:vynceai04@gmail.com" 
+                className="group-hover:text-white group-hover:translate-x-2 transition-all duration-300 ease-in-out inline-block"
+              >
+                vynceai04@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-3 text-[15px] text-white/60 group">
+              <Globe className="h-5 w-5 text-white/60 group-hover:text-white transition-colors shrink-0" />
+              <a 
+                href="https://vynceai.tech" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group-hover:text-white group-hover:translate-x-2 transition-all duration-300 ease-in-out inline-block"
+              >
+                vynceai.tech
+              </a>
+            </li>
+            <li className="flex items-center gap-3 text-[15px] text-white/60">
+              <MapPin className="h-5 w-5 text-white/60 shrink-0" />
+              <span>India</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
-    </footer>
-  )
-}
+    </div>
+
+    {/* Bottom Copyright Section */}
+    <div className="border-t border-white/10 py-8">
+      <p className="text-center text-sm text-white/40">
+        Â© 2026 Vynce AI. All rights reserved. Built with intelligence, security, and your success in mind.
+      </p>
+    </div>
+  </footer>
+);
+
+export default Footer;
