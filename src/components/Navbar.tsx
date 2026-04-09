@@ -51,13 +51,25 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-500 ${
-        scrolled 
-          ? "bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20" 
-          : "bg-transparent backdrop-blur-none border-b border-transparent"
+      // We moved the background classes out of the motion.nav to avoid transform conflicts
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "shadow-lg shadow-black/20" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between md:justify-center relative">
+      {/* Safari Fix: Dedicated background layer for the main Nav */}
+      <div 
+        className={`absolute inset-0 z-[-1] transition-all duration-500 border-b ${
+          scrolled 
+            ? "bg-[#060608]/40 border-white/10" 
+            : "bg-transparent border-transparent"
+        }`}
+        style={{ 
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+          backdropFilter: scrolled ? "blur(24px)" : "none"
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto flex items-center justify-between md:justify-center relative px-6 py-4">
         {/* Logo + Brand Name */}
         <a
           href="#"
@@ -77,7 +89,7 @@ const Navbar = () => {
             className="h-10 w-10 rounded-lg"
             style={{ filter: "brightness(0) invert(1)" }}
           />
-          <span className="text-foreground font-heading font-bold text-xl tracking-tight">
+          <span className="text-foreground font-heading font-bold text-xl tracking-tight text-white">
             Vynce AI
           </span>
         </a>
@@ -105,27 +117,38 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden">
+        <div className="md:hidden z-10">
           <button
             className="p-3 rounded-full hover:bg-white/10 transition-all duration-300"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X size={20} className="text-foreground" /> : <Menu size={20} className="text-foreground" />}
+            {mobileOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
           </button>
 
           <AnimatePresence>
             {mobileOpen && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: -10 }}
-                className="absolute top-full mt-3 right-6 bg-muted/90 backdrop-blur-2xl border border-border/40 rounded-2xl p-3 min-w-[200px] shadow-xl shadow-black/30 flex flex-col gap-1"
+                // SOLUTION HERE: Removed scale and y transforms. Only animating opacity.
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-[110%] right-0 min-w-[200px] flex flex-col gap-1 p-3 shadow-xl shadow-black/30 rounded-2xl"
               >
+                {/* Safari Fix: Dedicated background layer for the Dropdown */}
+                <div 
+                  className="absolute inset-0 z-[-1] rounded-2xl bg-[#060608]/60 border border-white/10"
+                  style={{ 
+                    WebkitBackdropFilter: "blur(24px)",
+                    backdropFilter: "blur(24px)"
+                  }}
+                />
+
                 {scrollItems.map((item) => (
                   <button
                     key={item.label}
                     onClick={() => scrollTo(item.id)}
-                    className="block w-full text-left px-4 py-2.5 text-sm text-muted-foreground hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                    className="block w-full text-left px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300 relative z-10"
                   >
                     {item.label}
                   </button>
@@ -134,7 +157,7 @@ const Navbar = () => {
                   <button
                     key={item.label}
                     onClick={() => goToPage(item.path)}
-                    className="block w-full text-left px-4 py-2.5 text-sm text-muted-foreground hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                    className="block w-full text-left px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300 relative z-10"
                   >
                     {item.label}
                   </button>

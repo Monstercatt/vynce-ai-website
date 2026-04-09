@@ -74,6 +74,7 @@ export default function Pricing() {
     <section id="pricing" style={{ paddingTop: 80, paddingBottom: 80 }} className="relative bg-[#060608]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+        
         .core-pricing {
           background: rgba(255,255,255,0.03);
           border: 1px solid rgba(255,255,255,0.08);
@@ -82,6 +83,27 @@ export default function Pricing() {
           text-align: center;
           margin-bottom: 48px;
         }
+        
+        /* New Responsive Classes for the Pricing Row */
+        .price-row {
+          display: flex;
+          justify-content: center;
+          align-items: baseline;
+          gap: 12px;
+          margin-bottom: 16px;
+          flex-wrap: wrap; /* Allows wrapping on tiny screens */
+        }
+        .price-large {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: white;
+        }
+        .price-small {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: white;
+        }
+
         .addon-card {
           background: rgba(255,255,255,0.03);
           border: 1px solid rgba(255,255,255,0.08);
@@ -127,6 +149,25 @@ export default function Pricing() {
           transform: translateY(-2px);
         }
         .pay-btn:active { transform: translateY(0); }
+
+        /* Mobile Media Query */
+        @media (max-width: 640px) {
+          .core-pricing {
+            padding: 24px 16px;
+          }
+          .price-row {
+            gap: 8px;
+          }
+          .price-large {
+            font-size: 2rem;
+          }
+          .price-small {
+            font-size: 1.25rem;
+          }
+          .roi-card {
+            padding: 24px 16px;
+          }
+        }
       `}</style>
 
       <div className="max-w-5xl mx-auto px-6 font-['DM_Sans',sans-serif]">
@@ -158,13 +199,16 @@ export default function Pricing() {
           className="core-pricing"
         >
           <h3 style={{ color: "rgba(255,255,255,0.9)", fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>Base System Setup</h3>
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "baseline", gap: 12, marginBottom: 16 }}>
-            <span style={{ fontSize: "2.5rem", fontWeight: 700, color: "white" }}>₹11,999</span>
+          
+          {/* Updated Responsive Pricing Row */}
+          <div className="price-row">
+            <span className="price-large">₹11,999</span>
             <span style={{ color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>setup</span>
-            <span style={{ color: "rgba(255,255,255,0.3)", margin: "0 8px" }}>+</span>
-            <span style={{ fontSize: "1.5rem", fontWeight: 700, color: "white" }}>₹2,000</span>
+            <span style={{ color: "rgba(255,255,255,0.3)", margin: "0 4px" }}>+</span>
+            <span className="price-small">₹2,000</span>
             <span style={{ color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>/month</span>
           </div>
+
           <p style={{ color: "rgba(255,255,255,0.5)", maxWidth: 500, margin: "0 auto", fontSize: "0.95rem" }}>
             Includes the core intake software, digital order forms, and standard processing dashboard.
           </p>
@@ -230,4 +274,3 @@ export default function Pricing() {
     </section>
   )
 }
-

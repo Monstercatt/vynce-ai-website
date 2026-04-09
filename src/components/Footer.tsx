@@ -122,10 +122,22 @@ const Footer = () => (
     </div>
 
     {/* Bottom Copyright Section */}
-    <div className="border-t border-white/10 py-8">
-      <p className="text-center text-sm text-white/40">
-        © 2026 Vynce AI. All rights reserved. Built with intelligence, security, and your success in mind.
-      </p>
+    <div className="border-t border-white/10 py-6 md:py-8">
+      <div className="container mx-auto px-4 md:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-6">
+        
+        {/* Copyright Text */}
+        <p className="text-center md:text-left text-sm text-white/40">
+          © 2026 Vynce AI. All rights reserved. Built with intelligence, security, and your success in mind.
+        </p>
+
+        {/* MSME Registration Badge */}
+        <div className="flex items-center justify-center">
+          <p className="text-[13px] text-white/50 px-4 py-2 rounded-full bg-white/5 border border-white/10 font-medium tracking-wide">
+            Vynce AI is a registered MSME (Udyam: <span className="text-white/80">UDYAM-MH-20-0336370</span>)
+          </p>
+        </div>
+
+      </div>
     </div>
   </footer>
 )
